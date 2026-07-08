@@ -1,111 +1,127 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import "./App.css"
+// import React, { useState } from 'react'
+
+// import { useEffect } from 'react';
+// import "./App.css"
 
 
-function App() {
-  const [score,setScore] = useState(0);
-  const [ball,setBall] = useState(0);
-  const [over,setOver] = useState(0);
-  const [wicket,setWicket] = useState(0);
-  const[message,setMessage] = useState("");
+// function Card() {
+//     const[firstButton,setFirstButton] = useState(0);
+//     const[secondButton,setSecondButton] = useState(0);
+//     const[thirdButton,setThirdButton] = useState(0);
+//     const[fourthButton,setFourthButton] = useState(0);
+//     const[message,setMessage] = useState("");
+//     const[intake,setIntake] = useState(0);
+//     const[remaining,setRemaining] = useState(0);
+//     const[goal,setGoal] = useState(2000);
 
-  const zeroBtn = ()=>{
-    setBall(prev=>(prev + 1))
-  }
-  const oneBtn = ()=>{
-    setBall(prev=>(prev + 1))
-    setScore( prev=>(prev + 1))
-  }
-  const twoBtn = ()=>{
-    setBall(prev=>(prev + 1))
-    setScore(prev =>(prev + 2))
-  }
-  const threeBtn = ()=>{
-    setBall(prev=>(prev + 1))
-    setScore(prev =>(prev + 3))
-  }
-  const fourBtn = ()=>{
-    setBall(prev=>(prev + 1))
-    setScore(prev =>(prev + 4))
-  }
-  const sixBtn = ()=>{
-    setBall(prev=>(prev + 1))
-    setScore(prev =>(prev + 6))
-  }
-  const wicketBtn = ()=>{
-    if(wicket>=10) return;
+//     const[total, setTotal] = useState(0);
 
-    setBall(prev=>(prev + 1))
-    setWicket( prev =>(prev + 1))
-  }
+//     const firstBtn = ()=>{
+//         setTotal (prev =>(prev + 250))
+//     }
+//     const secondBtn = ()=>{
+//         setTotal (prev =>(prev + 500))
+//     }
+//     const thirdBtn = ()=>{
+//         setTotal (prev =>(prev + 750))
+//     }
+//     const fourthBtn = ()=>{
+//         setTotal (prev =>(prev + 1000))
+//     }
 
-  // const wicketBtn = ()=>{
-  //   if(wicket>=10) ;
+//     useEffect(()=>{
+//       if(total >= 1500){
+//         setMessage("keep it up! You're doing great!!!");
+        
+//       }else{
+//         setMessage("");
+//       }
+//     },[total])
 
-  //   setBall(prev=>(prev + 1))
-  //   setWicket( prev =>(prev + 1))
-  // }
+//     useEffect(()=>{
+//       setIntake(total);
+//     },[total])
 
-  useEffect(()=>{
-      if(ball === 6){
-        setOver(over + 1);
-        setBall(0);
-      }
-  },[ball])
+//     useEffect(()=>{
+//       setRemaining(goal - total)
+//     },[goal, total])
+    
 
-  useEffect(() => {
+//   return (
+//     <div>
 
-    if (wicket === 10) {
-      setMessage("Team All Out 😒")
-    }else{
-      setMessage("")
-    }
-}, [wicket]);
+//         <>
+//         <h1 id='title'>Water Intake Tracker</h1>
+//         <h5 id='subtitle'>Stay hydrated Stay healthy!</h5>
 
-//   useEffect(() => {
-//   if (wicket === 10) {
-//     console.log("Team All out ");
-//   }
-// }, [wicket]);
+//         <div className='container'>
+          
+//           <h1 id='totals'>{total}ml</h1>
+//           <div className='buttons'>
+//           <div className='btnone'>
+//             <button onClick={firstBtn}>+250 ml</button>
+//             <button onClick={secondBtn}>+500 ml</button><br></br>
+//           </div>
+//           <div className='btnTwo'>
+//             <button onClick={thirdBtn}>+750 ml</button>
+//             <button onClick={fourthBtn}>+1000 ml</button>
+//           </div>
+//           </div>
+//         </div>
+        
+//         {/* <h1>{total}</h1> */}
+//         <h2 id='messages'>{message}</h2>
 
-  // useEffect(()=>{
-  //   if(wicket === 10){
-  //     console.log("Team All out😒");
-      
-  //   }
-  // },[wicket])
+//         <h1>Intake {intake}</h1>
+//         <h1>Goal {goal}</h1>
+//         <h1>Remaining:{remaining}</h1>
+//         <button onClick={()=>{setTotal(0)}}>Reset</button>
 
-  return (
-    <div className="container">
-    <h1>Cricket Score Counter🏏</h1>
-      <label htmlFor="">Score</label>
-      <input type="number" value={score} /><br /><br />
-      <label htmlFor="">Ball</label>
-      <input type="number" value={ball}/><br /><br />
-      <label htmlFor="">Over</label>
-      <input type="number" value={over} /><br /><br />
-      <label htmlFor="">Wicket</label>
-      <input type="number" value={wicket} /><br /><br />
+         
 
         
-      <button onClick={zeroBtn}>0</button>
-      <button onClick={oneBtn}>1</button>
-      <button onClick={twoBtn}>2</button>
-      <button onClick={threeBtn}>3</button>
-      <button onClick={fourBtn}>4</button>
-      <button onClick={sixBtn}>6</button>
-      <br /><br />
-      <button id="wicbtn" onClick={wicketBtn}>Wicket</button>
-      <h2>{message}</h2>
+//         </>
+//     </div>
+//   )
+// }
 
+// export default Card
+
+
+import React from 'react'
+import Card from './assets/components/Card'
+import blush from "./assets/blush.jpg"
+import brush from "./assets/brush.avif"
+import brush1 from "./assets/brush1.jpg"
+import cream from "./assets/cream.jpg"
+import lipstick from "./assets/lipstick.jpg"
+import makeup from "./assets/makeup.jpg"
+
+import "./App.css"
+function App() {
+  return (
+    <div>
+      <>
+      <div className='container'>
+        
+          
+          <Card name="popular item" price="₹2000" image={blush} />
+          <Card name="Fancy Product" price="₹1500" image={brush} /> 
+          <Card name="Special item" price="₹3000" image={brush1}/>
+          
+        
+
+        
+          <Card name="Popular item" price="₹4000" image={cream} />
+          <Card name="Sale item" price="₹3500" image={lipstick}/>
+          <Card name="Fancy Product" price="₹2560" image={makeup} />
+          
+          
+        
+      </div>
+      </>
     </div>
   )
 }
 
 export default App
-
-
-
-
